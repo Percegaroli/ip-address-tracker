@@ -1,9 +1,11 @@
 import React from 'react';
+import { IpInfo } from '../../../model/IpInfo';
 import SearchResultValue from '../../molecules/SearchResultValue';
 import styles from './styles.module.scss';
 
 interface Props {
   classes?: Classes;
+  values: IpInfo
 }
 
 interface Classes {
@@ -11,24 +13,24 @@ interface Classes {
   card?: string
 }
 
-const ResultCard = ({ classes }: Props) => (
+const ResultCard = ({ classes, values }: Props) => (
   <div className={`${styles.Container} ${classes.container ?? ''}`}>
     <div className={`${styles.Card} ${classes.card ?? ''}`}>
       <SearchResultValue
         label="IP Address"
-        value="192.212.174.101"
+        value={values.ipAddress}
       />
       <SearchResultValue
         label="Location"
-        value="Brooklyn, NY 10001"
+        value={values.location}
       />
       <SearchResultValue
         label="Timezone"
-        value="UTC -05:00"
+        value={values.timezone}
       />
       <SearchResultValue
         label="ISP"
-        value="SpaceX Starlink"
+        value={values.isp}
       />
     </div>
   </div>

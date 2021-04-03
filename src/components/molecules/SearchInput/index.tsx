@@ -3,13 +3,40 @@ import Image from 'next/image';
 import Button from '../../atoms/Button';
 import Input from '../../atoms/Input';
 import styles from './styles.module.scss';
+import { getIpInfoProxyRequest } from '../../../service/ipify';
+import { IpInfo } from '../../../model/IpInfo';
+import { IpifyIPResponseDTO } from '../../../service/ipify/interface';
 
 interface Props {
-  className?: string
+  className?: string;
+  setIpInfo: (ipInfo: IpInfo) => void
 }
 
-const SearchInput = ({ className }: Props) => {
+const SearchInput = ({ className, setIpInfo }: Props) => {
   const [inputValue, setInputValue] = useState('');
+
+  const mapResponseTOIpInfo = (response:IpifyIPResponseDTO): IpInfo => {
+    const { ip, isp, location } = response;
+    const {
+      city, postalCode, region, timezone,
+    } = location;
+    return {
+      ipAddress: ip,
+      isp,
+      timezone,
+      location: `${city}, ${region} ${postalCode}`,
+    };
+  };
+
+  const fetchIpInfo = async () => {
+    try {
+      const response = await getIpInfoProxyRequest();
+      setIpInfo(mapResponseTOIpInfo(response.data));
+    } catch (error) {
+      console.log('Not implemented yet');
+    }
+  };
+
   return (
     <div className={`${styles.Container} ${className}`}>
       <Input
@@ -19,7 +46,7 @@ const SearchInput = ({ className }: Props) => {
         className={styles.Input}
       />
       <Button
-        onClick={() => {}}
+        onClick={fetchIpInfo}
         className={styles.Button}
       >
         <Image

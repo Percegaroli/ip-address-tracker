@@ -1,0 +1,29 @@
+@import '/src/config/styles/tokens.scss';
+
+.Typography {
+  line-height: 1.2;
+}
+
+.h1 {
+  font-size: $fontSize-h1;
+}
+
+.h2 {
+  font-size: $fontSize-h2;
+}
+
+.h3 {
+  font-size: $fontSize-h3;
+}
+
+.h4 {
+  font-size: $fontSize-h4;
+}
+
+.Black {
+  color: $colors-black;
+}
+
+.White {
+  color: $colors-white;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 interface TypographyProps {
-  variant?: 'h1' | 'h2' | 'h3' | 'h4'
+  variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   color?: 'Black' | 'White',
   className?: string;
 }
@@ -45,6 +45,13 @@ const Typography: React.FC<TypographyProps> = ({
           <h4 className={classes}>
             {children}
           </h4>
+        );
+      }
+      case 'h5': {
+        return (
+          <h5 className={classes}>
+            {children}
+          </h5>
         );
       }
       default: {

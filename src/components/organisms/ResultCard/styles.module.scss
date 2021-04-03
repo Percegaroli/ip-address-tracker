@@ -1,0 +1,19 @@
+@import '/src/config/styles/tokens.scss';
+
+.Card {
+  background-color: $colors-white;
+  padding: 26px 24px 24px;
+  border-radius: 15px;
+
+  & > * {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.Container {
+  padding: 0 24px;
+}

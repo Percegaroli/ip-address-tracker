@@ -4,10 +4,14 @@ import Button from '../../atoms/Button';
 import Input from '../../atoms/Input';
 import styles from './styles.module.scss';
 
-const SearchInput = () => {
+interface Props {
+  className?: string
+}
+
+const SearchInput = ({ className }: Props) => {
   const [inputValue, setInputValue] = useState('');
   return (
-    <div className={styles.Container}>
+    <div className={`${styles.Container} ${className}`}>
       <Input
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
@@ -28,6 +32,10 @@ const SearchInput = () => {
     </div>
 
   );
+};
+
+SearchInput.defaultProps = {
+  className: '',
 };
 
 export default SearchInput;

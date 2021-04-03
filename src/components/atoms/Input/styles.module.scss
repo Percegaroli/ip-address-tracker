@@ -5,11 +5,11 @@
   outline: none;
   background-color: transparent;
   width: 100%;
-  color: $inputColor;
+  color: $textColor-dark;
   font-size: $fontSize-h3;
 
   &::placeholder {
-    color: adjust-color($color: $inputColor, $alpha: -.5);
+    color: adjust-color($color: $textColor-dark, $alpha: -.5);
     mix-blend-mode: normal;
   }
 } 

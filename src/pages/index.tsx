@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import HomeTemplate from '../components/Templates/HomeTemplate';
 
 export default function Home() {
   return (
@@ -9,9 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        Hello World
-      </div>
+      <HomeTemplate />
     </div>
   );
 }

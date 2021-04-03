@@ -1,0 +1,12 @@
+@import '/src/config/styles/tokens.scss';
+
+.Container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.Label {
+  margin-bottom: 7px;
+  color: adjust-color($color: $textColor-dark, $alpha: -.5) !important;
+}

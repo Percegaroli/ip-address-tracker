@@ -13,7 +13,10 @@ const Header = ({ setIpInfo }: Props) => (
     <Typography color="White" className={styles.Title}>
       IP Address Tracker
     </Typography>
-    <SearchInput setIpInfo={setIpInfo} />
+    <SearchInput
+      setIpInfo={setIpInfo}
+      className={styles.SearchInput}
+    />
   </header>
 );
 

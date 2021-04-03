@@ -1,3 +1,5 @@
+@import '/src/config/styles/tokens.scss';
+
 $offsetResultCard: -117px;
 
 .ResultCard {
@@ -7,4 +9,11 @@ $offsetResultCard: -117px;
   top: 167px;
   left: 0;
   z-index: 500;
+
+  @media (min-width: $breakpoint-desktop){
+    top: 200px;
+    max-width: 1100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

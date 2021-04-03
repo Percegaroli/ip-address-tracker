@@ -12,6 +12,20 @@
       margin-bottom: 0;
     }
   }
+
+  @media (min-width: $breakpoint-desktop){
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 37px 32px 36px;
+
+    & > * {
+      border-left: 1px solid adjust-color($color: $colors-black, $alpha: -.85);
+      margin-bottom: 0;
+      &:first-child{
+        border-left: none;
+      }
+    }
+  }
 }
 
 .Container {

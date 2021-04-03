@@ -1,3 +1,5 @@
+@import '/src/config/styles/tokens.scss';
+
 .Header {
   padding: 26px 24px 161px;
   background: url('../../../../public/pattern-bg.png');
@@ -5,8 +7,16 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  @media (min-width: $breakpoint-desktop){
+    padding-bottom: 128px;
+  }
 }
 
 .Title {
   margin-bottom: 24px;
+}
+
+.SearchInput {
+  max-width: 555px;
 }

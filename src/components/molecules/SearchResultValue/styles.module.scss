@@ -4,6 +4,10 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+
+   @media (min-width: $breakpoint-desktop){
+     padding: 0 32px;
+   }
 }
 
 .Label {

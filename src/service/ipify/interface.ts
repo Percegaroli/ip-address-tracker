@@ -30,3 +30,8 @@ interface ProxyDTO {
   vpn: boolean;
   tor: boolean;
 }
+
+export interface GetIpInfoReqParams {
+  ipAddress?: string;
+  domain?: string;
+}

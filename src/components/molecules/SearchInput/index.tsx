@@ -3,9 +3,8 @@ import Image from 'next/image';
 import Button from '../../atoms/Button';
 import Input from '../../atoms/Input';
 import styles from './styles.module.scss';
-import { getIpInfoProxyRequest } from '../../../service/ipify';
+import { getIpInfoProxyRequest, getIpNumber } from '../../../service/ipify';
 import { IpInfo } from '../../../model/IpInfo';
-import { IpifyIPResponseDTO } from '../../../service/ipify/interface';
 import { mapResponseTOIpInfo } from '../../../service/ipify/mapper';
 
 interface Props {
@@ -18,11 +17,28 @@ const SearchInput = ({ className, setIpInfo }: Props) => {
 
   const fetchIpInfo = async () => {
     try {
-      const response = await getIpInfoProxyRequest();
+      const response = await getIpInfoProxyRequest(await configureRequestParams());
       setIpInfo(mapResponseTOIpInfo(response.data));
     } catch (error) {
       console.log('Not implemented yet');
     }
+  };
+
+  const configureRequestParams = async () => {
+    if (inputValue === '') {
+      const ipNumber = await getIpNumber();
+      return {
+        ipAddress: ipNumber.data,
+      };
+    }
+    if (Number.isNaN(Number(inputValue.replace(/\./, '')))) {
+      return {
+        domain: inputValue,
+      };
+    }
+    return {
+      ipAddress: inputValue,
+    };
   };
 
   return (

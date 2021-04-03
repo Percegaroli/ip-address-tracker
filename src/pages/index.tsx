@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import HomeTemplate from '../components/Templates/HomeTemplate';
 import { IpInfo } from '../model/IpInfo';
-import { getIpInfoProxyRequest } from '../service/ipify';
+import { getIpInfoProxyRequest, getIpNumber } from '../service/ipify';
 import { mapResponseTOIpInfo } from '../service/ipify/mapper';
 
 export default function Home() {
@@ -14,7 +14,10 @@ export default function Home() {
 
   const fetchUserIpInfo = async () => {
     try {
-      const response = await getIpInfoProxyRequest();
+      const userIp = await getIpNumber();
+      const response = await getIpInfoProxyRequest({
+        ipAddress: userIp.data,
+      });
       addIpInfo(mapResponseTOIpInfo(response.data));
     } catch (err) {
       console.log('Not implemented yet');

@@ -1,10 +1,22 @@
 import axios from 'axios';
-import { IpifyIPResponseDTO } from './interface';
+import { GetIpInfoReqParams, IpifyIPResponseDTO } from './interface';
 
-export const getIpInfo = () => {
-  console.log(process.env.NODE_ENV);
+export const getIpInfo = (params: GetIpInfoReqParams) => {
+  const { domain, ipAddress } = params;
   const apiKey = process.env.IPIFY_KEY;
-  return axios.get<IpifyIPResponseDTO>(`https://geo.ipify.org/api/v1?apiKey=${apiKey}`);
+  return axios.get<IpifyIPResponseDTO>(`https://geo.ipify.org/api/v1?apiKey=${apiKey}`, {
+    params: {
+      domain,
+      ipAddress,
+    },
+  });
 };
 
-export const getIpInfoProxyRequest = () => axios.get<IpifyIPResponseDTO>('/api/ipify');
+export const getIpNumber = () => axios.get<string>('https://api.ipify.org');
+
+export const getIpInfoProxyRequest = (params: GetIpInfoReqParams) => axios.get<IpifyIPResponseDTO>('/api/ipify', {
+  params: {
+    domain: params.domain,
+    ipAddress: params.ipAddress,
+  },
+});

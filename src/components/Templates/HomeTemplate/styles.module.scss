@@ -1,8 +1,10 @@
 $offsetResultCard: -117px;
 
 .ResultCard {
-  position: relative;
+  position: absolute;
   top: $offsetResultCard;
   width: 100%;
+  top: 167px;
   left: 0;
+  z-index: 500;
 }

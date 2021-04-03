@@ -3,4 +3,6 @@ export interface IpInfo {
   location: string;
   timezone: string;
   isp: string;
+  lat: number;
+  long: number;
 }

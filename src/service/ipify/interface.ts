@@ -11,7 +11,7 @@ interface LocationDTO {
   region: string;
   city: string;
   lat: number;
-  lgn: number;
+  lng: number;
   postalCode: string;
   geonameId: number;
   timezone: string;

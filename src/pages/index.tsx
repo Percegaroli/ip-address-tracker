@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import HomeTemplate from '../components/Templates/HomeTemplate';
 import { IpInfo } from '../model/IpInfo';
+import { getIpInfoProxyRequest } from '../service/ipify';
+import { mapResponseTOIpInfo } from '../service/ipify/mapper';
 
 export default function Home() {
-  const [ipInfo, setIpInfo] = useState<IpInfo>({
-    ipAddress: '',
-    isp: '',
-    location: '',
-    timezone: '',
-  });
+  const [ipInfos, setIpInfo] = useState<Array<IpInfo>>([]);
+
+  useEffect(() => {
+    fetchUserIpInfo();
+  }, []);
+
+  const fetchUserIpInfo = async () => {
+    try {
+      const response = await getIpInfoProxyRequest();
+      addIpInfo(mapResponseTOIpInfo(response.data));
+    } catch (err) {
+      console.log('Not implemented yet');
+    }
+  };
+
+  const addIpInfo = (info: IpInfo) => {
+    setIpInfo([...ipInfos, info]);
+  };
+
   return (
     <div>
       <Head>
@@ -18,8 +33,8 @@ export default function Home() {
       </Head>
 
       <HomeTemplate
-        ipInfo={ipInfo}
-        setIpInfo={setIpInfo}
+        ipInfo={ipInfos}
+        setIpInfo={addIpInfo}
       />
     </div>
   );

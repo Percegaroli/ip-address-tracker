@@ -6,6 +6,7 @@ import styles from './styles.module.scss';
 import { getIpInfoProxyRequest } from '../../../service/ipify';
 import { IpInfo } from '../../../model/IpInfo';
 import { IpifyIPResponseDTO } from '../../../service/ipify/interface';
+import { mapResponseTOIpInfo } from '../../../service/ipify/mapper';
 
 interface Props {
   className?: string;
@@ -14,19 +15,6 @@ interface Props {
 
 const SearchInput = ({ className, setIpInfo }: Props) => {
   const [inputValue, setInputValue] = useState('');
-
-  const mapResponseTOIpInfo = (response:IpifyIPResponseDTO): IpInfo => {
-    const { ip, isp, location } = response;
-    const {
-      city, postalCode, region, timezone,
-    } = location;
-    return {
-      ipAddress: ip,
-      isp,
-      timezone,
-      location: `${city}, ${region} ${postalCode}`,
-    };
-  };
 
   const fetchIpInfo = async () => {
     try {

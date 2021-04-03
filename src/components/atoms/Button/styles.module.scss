@@ -1,0 +1,16 @@
+@import '/src/config/styles/tokens.scss';
+
+.Button {
+  padding: 23px 26px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $colors-black;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: #3F3F3F;
+  }
+}

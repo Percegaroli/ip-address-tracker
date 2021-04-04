@@ -1,4 +1,5 @@
 import React from 'react';
+import UseResolution from '../../../hooks/UseResolution';
 import { IpInfo } from '../../../model/IpInfo';
 import SearchResultValue from '../../molecules/SearchResultValue';
 import styles from './styles.module.scss';
@@ -17,15 +18,15 @@ const ResultCard = ({ classes, values }: Props) => (
   <div className={`${styles.Container} ${classes.container ?? ''}`}>
     <div className={`${styles.Card} ${classes.card ?? ''}`}>
       <SearchResultValue
-        label="IP Address"
+        label="IP ADDRESS"
         value={values.ipAddress}
       />
       <SearchResultValue
-        label="Location"
+        label="LOCATION"
         value={values.location}
       />
       <SearchResultValue
-        label="Timezone"
+        label="TIMEZONE"
         value={values.timezone}
       />
       <SearchResultValue

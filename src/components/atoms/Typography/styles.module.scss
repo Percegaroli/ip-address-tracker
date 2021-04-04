@@ -6,10 +6,12 @@
 
 .h1 {
   font-size: $fontSize-h1;
+  font-weight: 500;
 }
 
 .h2 {
   font-size: $fontSize-h2;
+  font-weight: 500;
 }
 
 .h3 {
@@ -23,6 +25,7 @@
 
 .h5 {
   font-size: $fontSize-h5;
+  letter-spacing: 1.458px;
 }
 
 .Black {

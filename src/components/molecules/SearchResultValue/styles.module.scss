@@ -20,4 +20,9 @@
 .Label {
   margin-bottom: 7px;
   color: adjust-color($color: $textColor-dark, $alpha: -.5) !important;
+
+  @media(min-width: $breakpoint-desktop){
+    font-size: 12px;
+    margin-bottom: 13px;
+  }
 }

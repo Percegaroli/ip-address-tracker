@@ -6,7 +6,7 @@
   background-color: transparent;
   width: 100%;
   color: $textColor-dark;
-  font-size: $fontSize-h3;
+  font-size: $fontSize-h4;
 
   &::placeholder {
     color: adjust-color($color: $textColor-dark, $alpha: -.5);

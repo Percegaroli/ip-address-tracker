@@ -56,8 +56,8 @@ const SearchInput = ({ className, setIpInfo }: Props) => {
         <Image
           src="/icons/icon-arrow.svg"
           alt=""
-          width={6}
-          height={12}
+          width={8}
+          height={14}
         />
       </Button>
     </div>

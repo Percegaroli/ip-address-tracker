@@ -27,7 +27,7 @@ const ResultCard = ({ classes, values }: Props) => (
       />
       <SearchResultValue
         label="TIMEZONE"
-        value={values.timezone}
+        value={`UTC ${values.timezone}`}
       />
       <SearchResultValue
         label="ISP"
